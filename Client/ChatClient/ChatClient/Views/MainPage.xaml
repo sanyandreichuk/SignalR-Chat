@@ -4,8 +4,17 @@
              x:Class="ChatClient.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to SignalR chat" />
-    </StackLayout>
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <ListView HasUnevenRows="True" SeparatorVisibility="None" />
+
+        <StackLayout Orientation="Horizontal" Grid.Row="1" Padding="10" BackgroundColor="#EFEFEF">
+            <Entry HorizontalOptions="FillAndExpand" HeightRequest="25" Placeholder="Message"/>
+            <Button Text="Send"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>
