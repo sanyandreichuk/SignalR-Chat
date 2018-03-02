@@ -5,6 +5,7 @@ using ChatClient.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
+using ChatClient.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ChatClient
@@ -29,6 +30,7 @@ namespace ChatClient
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IChatServices, ChatService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
         }
