@@ -32,6 +32,7 @@ namespace ChatClient.ViewModels
             SendCommand = new DelegateCommand(SendExecute);
 
             _chatService.OnMessageReceived += OnMessageReceived;
+            _chatService.ConnectAsync();
         }
 
         private void OnMessageReceived(object sender, Message message)
@@ -41,8 +42,6 @@ namespace ChatClient.ViewModels
 
         private async void SendExecute()
         {
-            await _chatService.ConnectAsync();
-
             var message = new Message {
                 Name = "Chater",
                 Text = OutGoingText
